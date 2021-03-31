@@ -43,6 +43,18 @@ export const getPolyglotStudents = (languageCount) => {
 // Export a function called getAvailableInstructors
 // It should not accept any parameters
 // It should return an array of instructors that don't have any students
+export const getAvailableInstructors = () => {
+    return instructors.filter(instructor => {
+        if (students.some(student => student.instructorId === instructor.id)){
+            // check if some of the students instructor id match the current instructor.id
+            // if yes, do not add instructor to resulting filtered array
+            return false
+        }
+        else {
+            return true
+        }
+    })   
+}
 
 // Export a function called getStudentsByLanguage
 // It should accept one string parameter named `language`
