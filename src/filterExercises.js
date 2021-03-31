@@ -9,6 +9,7 @@ const instructors = useInstructors();
 export const getStudentsInCohort = (cohort) => {
     let newArray = useStudents().filter(student => cohort === student.cohort)
        return newArray
+       //newArray only lives within this function, and can be reused if needed
     }
 
 
@@ -21,12 +22,15 @@ export const getStudentsInCohort = (cohort) => {
 export const getFullTimeStudents = () => {
     return students.filter(student => student.fullTime)
     // student.fullTime value = boolean and will return true or false so comparison isnt needed
-   // no need to declare variable AND return (check getStudentsInCohort function)
+   // no need to declare variable before (using let x = y) returning (check getStudentsInCohort function)
 }
 
 // Export a function called getStudentsByInstructorId
 // It should accept one integer parameter name `instructorId`
 // It should return an array of students with that instructor
+export const getStudentsByInstructorId = (instructorId)=> {
+    return students.filter(student => student.instructorId === instructorId)
+}
 
 // Export a function called getPolyglotStudents
 // It should accept one integer parameter named `languageCount`
