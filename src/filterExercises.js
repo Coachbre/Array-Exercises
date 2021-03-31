@@ -7,7 +7,7 @@ const instructors = useInstructors();
 // It should accept one integer parameter named `cohort`
 // It should return an array of just the students who are in that cohort
 export const getStudentsInCohort = (cohort) => {
-    let newArray = useStudents().filter(student => cohort === student.cohort)
+    let newArray = useStudents().filter(student => student.cohort === cohort)
        return newArray
        //newArray only lives within this function, and can be reused if needed
     }
@@ -36,6 +36,9 @@ export const getStudentsByInstructorId = (instructorId)=> {
 // It should accept one integer parameter named `languageCount`
 // It should return an array of students who know as many (or more) languages than `languageCount`
 // Ex: If the number 2 is passed to the function, only the students who know 2 or more languages should be returned
+export const getPolyglotStudents = (languageCount) => {
+    return students.filter(student => student.languages.length >= languageCount)
+}
 
 // Export a function called getAvailableInstructors
 // It should not accept any parameters
